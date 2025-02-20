@@ -8,6 +8,7 @@ def main():
 
         # Wait for user input
         command, *args = input().split(" ")
+        print(" ".join(args))
         if str(command) == "exit":
             break
         elif str(command) == "echo":
