@@ -8,13 +8,12 @@ def main():
 
         # Wait for user input
         command, *args = input().split(" ")
-        match command:
-            case "exit":
-                break
-            case "echo":
-                print(" ".join(args))
-            case _:
-                sys.stdout.write(f"{command}: command not found\n")
+        if command == "exit":
+            break
+        elif command == "echo":
+            print(" ".join(args))
+        else:
+            print(f"{command}: command not found")
     
     return
 
