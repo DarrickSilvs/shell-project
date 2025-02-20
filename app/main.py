@@ -15,6 +15,8 @@ def main():
                 print(" ".join(args))
             case _:
                 sys.stdout.write(f"{command}: command not found\n")
+    
+    return
 
 
 if __name__ == "__main__":
