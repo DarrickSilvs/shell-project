@@ -13,7 +13,7 @@ def main():
 
         ls = command.split(" ")
         if str(ls[0]) == "echo":
-            print(ls[1:])
+            print(str(ls[1:]))
         else:
             print(f"{command}: command not found")
 
