@@ -8,13 +8,19 @@ def main():
 
         # Wait for user input
         command, *args = input().split(" ")
-        print(" ".join(args))
-        if str(command) == "exit":
-            break
-        elif str(command) == "echo":
-            print(" ".join(args))
-        else:
-            print(f"{command}: command not found")
+        match command:
+            case "exit":
+                break
+            case "echo":
+                print(" ".join(args))
+            case "type":
+                builtin = ['exit', 'echo', 'type']
+                if args in builtin:
+                    print(f"{command} is a shell builtin")
+                else:
+                    print(f"{command}: not found")
+            case _:
+                print(f"{command}: command not found")
     
     return
 
