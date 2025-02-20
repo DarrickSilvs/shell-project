@@ -8,9 +8,9 @@ def main():
 
         # Wait for user input
         command, *args = input().split(" ")
-        if command == "exit":
+        if str(command) == "exit":
             break
-        elif command == "echo":
+        elif str(command) == "echo":
             print(" ".join(args))
         else:
             print(f"{command}: command not found")
