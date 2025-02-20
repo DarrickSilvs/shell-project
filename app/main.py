@@ -8,7 +8,7 @@ def main():
 
         # Wait for user input
         command = input()
-        if command.toString() == "exit 0":
+        if str(command) == "exit 0":
             break
         print(f"{command}: command not found")
 
