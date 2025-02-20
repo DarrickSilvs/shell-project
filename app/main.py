@@ -13,7 +13,7 @@ def main():
                 break
             case "echo":
                 print(" ".join(args))
-            case default:
+            case _:
                 sys.stdout.write(f"{command}: command not found\n")
 
 
