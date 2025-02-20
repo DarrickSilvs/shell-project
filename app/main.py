@@ -19,14 +19,15 @@ def main():
                 if args[0] in builtin:
                     print(f"{args[0]} is a shell builtin")
                 else:
-                    PATH="/usr/bin:/usr/local/bin"
-                    pathList = PATH.split(':')
+                    pathList =os.environ["PATH"].split(':')
+                    flag = False
+                    for i in pathList:
+                        if os.path.exists(f"{i}/{args[0]}") == True:
+                            flag = True
+                            print(f"{args[0]} is {i}/{args[0]}")
+                            break
                     
-                    if os.path.exists(f"{pathList[0]}/{args[0]}") == True:
-                        print(f"{args[0]} is {pathList[0]}/{args[0]}")
-                    elif os.path.exists(f"{pathList[1]}/{args[0]}") == True:
-                        print(f"{args[0]} is {pathList[1]}/{args[0]}")
-                    else:
+                    if flag == False:
                         print(f"{args[0]}: not found")
             case _:
                 print(f"{command}: command not found")
