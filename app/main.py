@@ -1,5 +1,7 @@
 import sys
+import os
 
+PATH="/usr/bin:/usr/local/bin"
 
 def main():
     # Uncomment this block to pass the first stage
@@ -18,7 +20,10 @@ def main():
                 if args[0] in builtin:
                     print(f"{args[0]} is a shell builtin")
                 else:
-                    print(f"{args[0]}: not found")
+                    if os.path.exists(f"{PATH}/{args[0]}") == True:
+                        print(f"{args[0] is PATH}/{args[0]}")
+                    else:
+                        print(f"{args[0]}: not found")
             case _:
                 print(f"{command}: command not found")
     
