@@ -20,14 +20,14 @@ def main():
                     print(f"{args[0]} is a shell builtin")
                 else:
                     path = checkPathFile(args[0])
-                    if path != False:
+                    if path != None:
                         print(f"{args[0]} is {path}")
                     else:
                         print(f"{args[0]}: not found")
             case _:
-                path = checkPathFile(sys.argv[0])
-                if path != False and os.access(path, os.X_OK):
-                    subprocess.run(sys.argv[0] + sys.argv[1])
+                path = checkPathFile(command)
+                if path != None and os.access(path, os.X_OK):
+                    subprocess.run(command + args)
                 else:
                     print(f"{command}: command not found")
     
@@ -35,12 +35,10 @@ def main():
 
 def checkPathFile(file):
     pathList = os.environ["PATH"].split(':')
-    flag = False
     for i in pathList:
         if os.path.exists(f"{i}/{file}"):
-            flag = os.path.join(i, file)
-            break
-    return flag
+            return os.path.join(i, file)
+    return None
 
 if __name__ == "__main__":
     main()
