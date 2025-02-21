@@ -21,12 +21,12 @@ def main():
                 else:
                     path = checkPathFile(args[0])
                     if path != False:
-                        print(f"{args[0]} is {path}/{args[0]}")
+                        print(f"{args[0]} is {path}")
                     else:
                         print(f"{args[0]}: not found")
             case _:
                 path = checkPathFile(sys.argv[0])
-                if path != False:
+                if path != False and os.access(path, os.X_OK):
                     subprocess.run(sys.argv[0] + sys.argv[1])
                 else:
                     print(f"{command}: command not found")
@@ -37,8 +37,8 @@ def checkPathFile(file):
     pathList = os.environ["PATH"].split(':')
     flag = False
     for i in pathList:
-        if os.path.exists(f"{i}/{file}") == True:
-            flag = i
+        if os.path.exists(f"{i}/{file}"):
+            flag = os.path.join(i, file)
             break
     return flag
 
