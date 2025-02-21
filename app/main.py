@@ -14,6 +14,8 @@ def main():
                 break
             case "echo":
                 print(" ".join(args))
+            case "pwd":
+                print(os.getcwd())
             case "type":
                 builtin = ['exit', 'echo', 'type']
                 if args[0] in builtin:
