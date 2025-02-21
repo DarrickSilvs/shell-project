@@ -17,7 +17,7 @@ def main():
             case "pwd":
                 print(os.getcwd())
             case "cd":
-                os.chdir(f"/{args}")
+                os.chdir(args[0])
             case "type":
                 builtin = ['exit', 'echo', 'type', 'pwd', 'cd']
                 if args[0] in builtin:
