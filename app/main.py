@@ -27,7 +27,7 @@ def main():
             case _:
                 path = checkPathFile(command)
                 if path != None and os.access(path, os.X_OK):
-                    subprocess.run([path] + args)
+                    subprocess.run([command] + args)
                 else:
                     print(f"{command}: command not found")
     
