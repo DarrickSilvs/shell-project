@@ -20,7 +20,11 @@ def main():
                 try:
                     os.chdir(args[0])
                 except:
-                    print(f"cd: {args[0]}: No such file or directory")
+                    if args[0] == '~':
+                        user_home_dir = os.environ['HOME']
+                        os.chdir(user_home_dir)
+                    else:    
+                        print(f"cd: {args[0]}: No such file or directory")
             case "type":
                 builtin = ['exit', 'echo', 'type', 'pwd', 'cd']
                 if args[0] in builtin:
