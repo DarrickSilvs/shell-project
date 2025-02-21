@@ -16,8 +16,10 @@ def main():
                 print(" ".join(args))
             case "pwd":
                 print(os.getcwd())
+            case "cd":
+                os.chdir(args)
             case "type":
-                builtin = ['exit', 'echo', 'type', 'pwd']
+                builtin = ['exit', 'echo', 'type', 'pwd', 'cd']
                 if args[0] in builtin:
                     print(f"{args[0]} is a shell builtin")
                 else:
