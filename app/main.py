@@ -1,6 +1,7 @@
 import sys
 import os
 import subprocess
+import shlex
 
 def main():
     # Uncomment this block to pass the first stage
@@ -8,9 +9,8 @@ def main():
         sys.stdout.write("$ ")
 
         # Wait for user input
-        command, *args = input().split()
+        command, *args = shlex.split(input())
 
-        args = args.strip()
         # Remove single quotes
         args = [arg.strip().replace("'", "") for arg in args]
 
