@@ -10,9 +10,10 @@ def main():
         # Wait for user input
         command, *args = input().split()
 
+        args = args.strip()
         # Remove single quotes
         args = [arg.strip().replace("'", "") for arg in args]
-        
+
         match command:
             case "exit":
                 break
