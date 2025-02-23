@@ -9,6 +9,11 @@ def main():
 
         # Wait for user input
         command, *args = input().split(" ")
+        
+        # Remove single quotes
+        for i in args:
+            args[i] = args[i].replace("'", "")
+
         match command:
             case "exit":
                 break
