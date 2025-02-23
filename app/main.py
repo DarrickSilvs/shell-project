@@ -14,6 +14,7 @@ def main():
         for i in range(len(args)):
             args[i] = args[i].replace("'", "")
 
+        args = [" ".join(args).strip()]
         match command:
             case "exit":
                 break
