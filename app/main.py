@@ -8,7 +8,7 @@ def main():
         sys.stdout.write("$ ")
 
         # Wait for user input
-        command, *args = input().split()
+        command, *args = input().split(" ", maxsplit=1)
 
         # Remove single quotes
         for i in range(len(args)):
