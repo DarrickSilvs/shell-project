@@ -8,13 +8,11 @@ def main():
         sys.stdout.write("$ ")
 
         # Wait for user input
-        command, *args = input().split(" ")
+        command, *args = input().split()
 
         # Remove single quotes
-        for i in range(len(args)):
-            args[i] = args[i].replace("'", "")
-
-        args = [" ".join(args).strip()]
+        args = [arg.strip().replace("'", "") for arg in args]
+        
         match command:
             case "exit":
                 break
