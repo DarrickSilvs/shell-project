@@ -20,14 +20,14 @@ def main():
         args = [" ".join(args)]
         # Checks for ">"
         if ">" in args:
-            parts = args.split(">")
+            parts = args.split(">", 1)
             command_part = parts[0].strip()
             file_part = parts[1].strip()
 
             # Open file in write mode (overwrite if exists)
             with open(file_part, "w") as f:
                 # Execute command and write output to the file
-                subprocess.run(command_part.split(), stdout=f, stderr= sys.stderr)
+                subprocess.run(command_part, shell=True, stdout=f, stderr= sys.stderr)
             continue
 
         match command:
