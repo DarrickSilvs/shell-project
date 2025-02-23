@@ -27,7 +27,7 @@ def main():
             # Open file in write mode (overwrite if exists)
             with open(file_part, "w") as f:
                 # Execute command and write output to the file
-                subprocess.run(command_part, shell=True, stdout=f, stderr= sys.stderr)
+                subprocess.run(command_part.split(), stdout=f, stderr= sys.stderr)
             continue
 
         match command:
