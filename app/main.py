@@ -13,6 +13,7 @@ def main():
         # Remove single quotes
         for i in range(len(args)):
             args[i] = args[i].replace("'", "")
+            args[i] = " ".join(args[i].split())
 
         match command:
             case "exit":
