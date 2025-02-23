@@ -16,7 +16,7 @@ def main():
             arg.strip().replace("'", "")
             if arg.startswith("\"") and arg.endswith("\""):
                 arg = arg[1:len(arg) - 1]
-        args = [arg.strip().replace("'", "") for arg in args]
+        #args = [arg.strip().replace("'", "") for arg in args]
 
         match command:
             case "exit":
