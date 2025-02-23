@@ -11,7 +11,11 @@ def main():
         # Wait for user input
         command, *args = shlex.split(input())
 
-        # Remove single quotes
+        # Remove single quotes and double quotes
+        for arg in args:
+            arg.strip().replace("'", "")
+            if arg.startswith("\"") and arg.endswith("\""):
+                arg = arg[1:len(arg) - 1]
         args = [arg.strip().replace("'", "") for arg in args]
 
         match command:
