@@ -37,6 +37,10 @@ def main():
                 print(" ".join(args))
             case "pwd":
                 print(os.getcwd())
+            case "ls":
+                lists = os.listdir(path=".")
+                for i in lists:
+                    print(i)
             case "cd":
                 try:
                     os.chdir(args[0])
